@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafies i sons del català central</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0;
+        }
+
+        #main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 960px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            align-items: start;
+        }
+
+        .letter-card {
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.0);
+        }
+
+        /* Styles for vowels and consonants */
+        .vowel {
+            border: 2px solid #007BFF;
+            color: #007BFF;
+            background-color: rgba(0, 123, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .consonant {
+            border: 2px solid #28A745;
+            color: #28A745;
+            background-color: rgba(40, 167, 69, 0.05);
+            border-radius: 10px;
+        }
+
+        button {
+            font-size: 1.1em;
+            margin: 5px 0;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            max-width: 150px;
+            box-sizing: border-box;
+            background: transparent;
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+        }
+
+        .button-letter {
+            font-weight: bold;
+            color: #000; /* Black color for bold letters */
+        }
+
+        /* Hover effects */
+        .vowel button:hover {
+            background-color: rgba(0, 123, 255, 0.2);
+            color: #0056b3;
+        }
+
+        .consonant button:hover {
+            background-color: rgba(40, 167, 69, 0.2);
+            color: #1e7e34;
+        }
+
+        /* Tooltip styling */
+        button[data-tooltip] {
+            position: relative;
+        }
+
+        button[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 50%;
+            bottom: 120%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 8px;
+            border-radius: 5px;
+            white-space: pre-line; /* Preserve line breaks */
+            z-index: 100;
+            width: max-content;
+            max-width: 200px;
+            text-align: center;
+        }
+
+        button[data-tooltip]:hover::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 110%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+            z-index: 101;
+        }
+
+        @media (max-width: 600px) {
+            button {
+                width: 100%;
+            }
+
+            #container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main-content">
+        <h1>Grafies i sons del català central</h1>
+        <div id="container">
+            <!-- Letter Cards -->
+            <!-- A (/a/) -->
+            <div class="letter-card vowel">
+                <button onclick="openVideo('a_oberta', 'a_oberta.mp4')" data-tooltip="Vocal central oberta">
+                    <span class="button-letter">A</span> (m<span class="button-letter">a</span>re)
+                </button>
+            </div>
+            <!-- A (/ə/) Vocal neutra -->
+            <div class="letter-card vowel">
+                <button onclick="openVideo('a_neutra', 'a_neutra.mp4')" data-tooltip="Vocal central mitjana">
+                    <span class="button-letter">A</span> (pil<span class="button-letter">a</span>)
+                </button>
+            </div>
+
+            <!-- B -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('b', 'b.mp4')" data-tooltip="Consonant oclusiva bilabial sonora">
+                    <span class="button-letter">B</span> (<span class="button-letter">b</span>ona)
+                </button>
+            </div>
+
+            <!-- C (before a, o, u) /k/ -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('c_k', 'c_k.mp4')" data-tooltip="Consonant oclusiva velar sorda">
+                    <span class="button-letter">C</span> (<span class="button-letter">c</span>asa)
+                </button>
+            </div>
+            <!-- C (before e, i) /s/ -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('c_s', 'c_s.mp4')" data-tooltip="Consonant fricativa alveolar sorda">
+                    <span class="button-letter">C</span> (<span class="button-letter">c</span>el)
+                </button>
+            </div>
+
+            <!-- Ç -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('ç', 'ç.mp4')" data-tooltip="Consonant fricativa alveolar sorda">
+                    <span class="button-letter">Ç</span> (Bar<span class="button-letter">ç</span>a)
+                </button>
+            </div>
+
+            <!-- D -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('d', 'd.mp4')" data-tooltip="Consonant oclusiva dental sonora">
+                    <span class="button-letter">D</span> (<span class="button-letter">d</span>ona)
+                </button>
+            </div>
+
+            <!-- E (/e/) -->
+            <div class="letter-card vowel">
+                <button onclick="openVideo('e_tancada', 'e_tancada.mp4')" data-tooltip="Vocal anterior tancada">
+                    <span class="button-letter">E</span> (b<span class="button-letter">é</span>)
+                </button>
+            </div>
+            <!-- E (/ɛ/) -->
+            <div class="letter-card vowel">
+                <button onclick="openVideo('e_oberta', 'e_oberta.mp4')" data-tooltip="Vocal anterior oberta">
+                    <span class="button-letter">E</span> (m<span class="button-letter">e</span>l)
+                </button>
+            </div>
+            <!-- E as Vocal neutra (/ə/) -->
+            <div class="letter-card vowel">
+                <button onclick="openVideo('e_neutra', 'e_neutra.mp4')" data-tooltip="Vocal central mitjana">
+                    <span class="button-letter">E</span> (v<span class="button-letter">e</span>nir)
+                </button>
+            </div>
+
+            <!-- F -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('f', 'f.mp4')" data-tooltip="Consonant fricativa labiodental sorda">
+                    <span class="button-letter">F</span> (<span class="button-letter">f</span>oc)
+                </button>
+            </div>
+
+            <!-- G (before a, o, u) /g/ -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('g_g', 'g_g.mp4')" data-tooltip="Consonant oclusiva velar sonora">
+                    <span class="button-letter">G</span> (<span class="button-letter">g</span>at)
+                </button>
+            </div>
+            <!-- G (before e, i) /ʒ/ -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('g_j', 'g_j.mp4')" data-tooltip="Consonant fricativa palatal sonora">
+                    <span class="button-letter">G</span> (<span class="button-letter">g</span>erro)
+                </button>
+            </div>
+
+            <!-- I -->
+            <div class="letter-card vowel">
+                <button onclick="openVideo('i', 'i.mp4')" data-tooltip="Vocal anterior tancada">
+                    <span class="button-letter">I</span> (<span class="button-letter">i</span>lla)
+                </button>
+            </div>
+
+            <!-- J -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('j', 'j.mp4')" data-tooltip="Consonant fricativa palatal sonora">
+                    <span class="button-letter">J</span> (<span class="button-letter">j</span>ardí)
+                </button>
+            </div>
+
+            <!-- L -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('l', 'l.mp4')" data-tooltip="Consonant lateral alveolar sonora">
+                    <span class="button-letter">L</span> (bo<span class="button-letter">l</span>a)
+                </button>
+            </div>
+
+            <!-- LL -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('ll', 'll.mp4')" data-tooltip="Consonant lateral palatal sonora">
+                    <span class="button-letter">LL</span> (a<span class="button-letter">ll</span>í)
+                </button>
+            </div>
+
+            <!-- M -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('m', 'm.mp4')" data-tooltip="Consonant nasal bilabial sonora">
+                    <span class="button-letter">M</span> (<span class="button-letter">m</span>are)
+                </button>
+            </div>
+
+            <!-- N -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('n', 'n.mp4')" data-tooltip="Consonant nasal alveolar sonora">
+                    <span class="button-letter">N</span> (<span class="button-letter">n</span>o)
+                </button>
+            </div>
+
+            <!-- NY -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('ny', 'ny.mp4')" data-tooltip="Consonant nasal palatal sonora">
+                    <span class="button-letter">NY</span> (a<span class="button-letter">ny</span>)
+                </button>
+            </div>
+
+            <!-- O (/o/) -->
+            <div class="letter-card vowel">
+                <button onclick="openVideo('o_tancada', 'o_tancada.mp4')" data-tooltip="Vocal posterior tancada">
+                    <span class="button-letter">O</span> (g<span class="button-letter">o</span>s)
+                </button>
+            </div>
+            <!-- O (/ɔ/) -->
+            <div class="letter-card vowel">
+                <button onclick="openVideo('o_oberta', 'o_oberta.mp4')" data-tooltip="Vocal posterior oberta">
+                    <span class="button-letter">O</span> (s<span class="button-letter">o</span>rt)
+                </button>
+            </div>
+            <!-- O as Vocal neutra (/ə/) -->
+            <div class="letter-card vowel">
+                <button onclick="openVideo('o_neutra', 'o_neutra.mp4')" data-tooltip="Vocal posterior tancada">
+                    <span class="button-letter">O</span> (eur<span class="button-letter">o</span>)
+                </button>
+            </div>
+
+            <!-- P -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('p', 'p.mp4')" data-tooltip="Consonant oclusiva bilabial sorda">
+                    <span class="button-letter">P</span> (<span class="button-letter">p</span>oma)
+                </button>
+            </div>
+
+            <!-- Q -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('q', 'q.mp4')" data-tooltip="Consonant oclusiva velar sorda">
+                    <span class="button-letter">Q</span> (<span class="button-letter">q</span>uatre)
+                </button>
+            </div>
+            <!-- R -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('r', 'rr.mp4')" data-tooltip="Consonant vibrant múltiple alveolar sonora">
+                    <span class="button-letter">R</span> (<span class="button-letter">r</span>iure)
+                </button>
+            </div>
+            <!-- R -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('r', 'r.mp4')" data-tooltip="Consonant vibrant simple alveolar sonora">
+                    <span class="button-letter">R</span> (riu<span class="button-letter">r</span>e)
+                </button>
+            </div>
+            <!-- RR -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('rr', 'rr2.mp4')" data-tooltip="Consonant vibrant múltiple alveolar sonora">
+                    <span class="button-letter">RR</span> (fe<span class="button-letter">rr</span>o)
+                </button>
+            </div>
+
+            <!-- S (/s/) -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('s', 's.mp4')" data-tooltip="Consonant fricativa alveolar sorda (so de 'sol')">
+                    <span class="button-letter">S</span> (<span class="button-letter">s</span>ol)
+                </button>
+            </div>
+            <!-- S (/z/) -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('s_z', 's_z.mp4')" data-tooltip="Consonant fricativa alveolar sonora">
+                    <span class="button-letter">S</span> (ca<span class="button-letter">s</span>a)
+                </button>
+            </div>
+
+            <!-- T -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('t', 't.mp4')" data-tooltip="Consonant oclusiva dental sorda">
+                    <span class="button-letter">T</span> (<span class="button-letter">t</span>aula)
+                </button>
+            </div>
+
+            <!-- U -->
+            <div class="letter-card vowel">
+                <button onclick="openVideo('u', 'u.mp4')" data-tooltip="Vocal posterior tancada">
+                    <span class="button-letter">U</span> (<span class="button-letter">u</span>na)
+                </button>
+            </div>
+
+            <!-- X (/ʃ/) -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('x', 'x.mp4')" data-tooltip="Consonant fricativa palatal sorda">
+                    <span class="button-letter">X</span> (pei<span class="button-letter">x</span>)
+                </button>
+            </div>
+            <!-- X (/ks/) -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('x_ks', 'x_ks.mp4')" data-tooltip="Consonant doble /k/ + /s/">
+                    <span class="button-letter">X</span> (e<span class="button-letter">x</span>emple)
+                </button>
+            </div>
+
+            <!-- Z -->
+            <div class="letter-card consonant">
+                <button onclick="openVideo('z', 'z.mp4')" data-tooltip="Consonant fricativa alveolar sonora">
+                    <span class="button-letter">Z</span> (<span class="button-letter">z</span>ebra)
+                </button>
+            </div>
+
+            <!-- Additional letters or sounds can be added here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to open video in a pop-up window
+        function openVideo(letter, filename) {
+            const width = 330;
+            const height = 900;
+            const left = (window.screen.width - width) / 2;
+            const top = (window.screen.height - height) / 2;
+            const videoPath = `${filename}`; // Adjust the path if needed
+            window.open(videoPath, `${letter} Pronunciació`, `width=${width},height=${height},top=${top},left=${left}`);
+        }
+    </script>
+</body>
+</html>
