@@ -69,7 +69,9 @@
             gap: 10px;
             margin-bottom: 10px;
             align-items: center;
-            flex-wrap: wrap;
+            justify-content: center;
+            flex-wrap: nowrap;
+            width: 100%;
         }
 
         .letter-forms .form {
@@ -78,6 +80,9 @@
             border-radius: 8px;
             background-color: rgba(0, 0, 0, 0.05);
             color: #333;
+            flex: 1 1 auto;
+            text-align: center;
+            min-width: 0;
         }
 
         .letter-forms .uppercase {
